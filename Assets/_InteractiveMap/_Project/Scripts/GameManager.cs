@@ -16,6 +16,11 @@ public class GameManager : MonoBehaviour
     public void StartGame()
     {
         //Instantiate(car, carSpawnPoint);
+        int carIdentifier = PlayerPrefs.GetInt("carIdentifier");
+        string playerName = PlayerPrefs.GetString("playerName");
+
+        print("The car identifier is " + carIdentifier);
+        print("Your name is " + playerName);
         timer.timerIsRunning = true;
     }
 }

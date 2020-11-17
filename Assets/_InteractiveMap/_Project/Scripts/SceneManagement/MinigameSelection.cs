@@ -8,30 +8,36 @@ using TMPro;
 public class MinigameSelection : MonoBehaviour
 {
     public TextMeshProUGUI inputText;
-    public GameObject carOne, carTwo, carThree;
+    public GameObject playButton;
 
     private string _playerName;
-    private GameObject _selectedCar;
+    private int _tempIdentifier;
 
     private void Update()
     {
         _playerName = inputText.text;
 
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if(_tempIdentifier != 0)
         {
-            RaycastHit mouseHit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            playButton.SetActive(true);
+        }
+        else
+        {
+            playButton.SetActive(false);
+        }
+    }
 
-            if (Physics.Raycast(ray, out mouseHit))
-            {
-                _selectedCar = mouseHit.collider.gameObject;                                
-            }
-        }     
+    public void SetCar(int identifier)
+    {
+        _tempIdentifier = identifier;
+        if (_tempIdentifier >= 1 && _tempIdentifier <= 3)
+        {
+            PlayerPrefs.SetInt("carIdentifier", _tempIdentifier);
+        }   
     }
 
     private void OnDisable()
     {
         PlayerPrefs.SetString("playerName", _playerName);
-        PlayerPrefs.SetString("selectedCar", _selectedCar.ToString());
     }
 }
