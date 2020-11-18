@@ -20,11 +20,6 @@ public class InvokeMenu : MonoBehaviour
     [SerializeReference]
     private CurrentState state;
 
-    private void OnEnable()
-    {
-        sceneManager.tempLayer = sceneManager.main;
-    }
-
     public void StateInput(InvokeMenu currState)
     {
         switch (currState.state)
@@ -45,7 +40,8 @@ public class InvokeMenu : MonoBehaviour
                 ChangeState(sceneManager.sliderBase);
                 break;
             case CurrentState.PlayMinigame:
-                SceneManager.LoadScene(1);
+                StartCoroutine(LoadAsynchronously(1));
+                ChangeState(sceneManager.loadingScreen);
                 break;
             case CurrentState.PlaySlider:
                 //SceneManager.LoadScene(2);
@@ -62,5 +58,18 @@ public class InvokeMenu : MonoBehaviour
 
         layer.SetActive(true);
         sceneManager.tempLayer = layer;
+    }
+
+    private IEnumerator LoadAsynchronously(int _sceneIndex)
+    {
+        AsyncOperation operation = SceneManager.LoadSceneAsync(_sceneIndex);
+
+        while (!operation.isDone)
+        {
+            float _progress = Mathf.Clamp01(operation.progress / 0.9f);
+            sceneManager.loadingSlider.value = _progress;
+
+            yield return null;
+        }
     }
 }

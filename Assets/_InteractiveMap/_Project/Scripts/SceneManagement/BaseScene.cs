@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BaseScene : MonoBehaviour
 {
     public GameObject layerBase;
-    [HideInInspector]
+    //[HideInInspector]
     public GameObject tempLayer;
 
     [Header("Main Scene")]
@@ -18,4 +19,13 @@ public class BaseScene : MonoBehaviour
 
     [Header("Time Slider")]
     public GameObject sliderBase;
+
+    [Header("Loading Screen")]
+    public GameObject loadingScreen;
+    public Slider loadingSlider;
+
+    private void OnEnable()
+    {
+        tempLayer = main;
+    }
 }
