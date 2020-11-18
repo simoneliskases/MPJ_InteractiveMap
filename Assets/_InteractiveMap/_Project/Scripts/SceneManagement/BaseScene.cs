@@ -6,11 +6,12 @@ using UnityEngine.UI;
 public class BaseScene : MonoBehaviour
 {
     public GameObject layerBase;
-    //[HideInInspector]
+    [HideInInspector]
     public GameObject tempLayer;
 
     [Header("Main Scene")]
     public GameObject main;
+    public GameObject restrictedSettings;
 
     [Header("Minigame")]
     public GameObject minigameBase;

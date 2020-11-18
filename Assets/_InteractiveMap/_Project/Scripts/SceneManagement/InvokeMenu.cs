@@ -10,6 +10,7 @@ public class InvokeMenu : MonoBehaviour
     public enum CurrentState
     {
         Main,
+        RestrictedSettings,
         MinigameBase,
         MinigameSettings,
         MinigameSelection,
@@ -26,6 +27,9 @@ public class InvokeMenu : MonoBehaviour
         {
             case CurrentState.Main:
                 ChangeState(sceneManager.main);
+                break;
+            case CurrentState.RestrictedSettings:
+                ChangeState(sceneManager.restrictedSettings);
                 break;
             case CurrentState.MinigameBase:
                 ChangeState(sceneManager.minigameBase);
@@ -44,7 +48,8 @@ public class InvokeMenu : MonoBehaviour
                 ChangeState(sceneManager.loadingScreen);
                 break;
             case CurrentState.PlaySlider:
-                //SceneManager.LoadScene(2);
+                StartCoroutine(LoadAsynchronously(2));
+                ChangeState(sceneManager.loadingScreen);
                 break;
         }
     }
