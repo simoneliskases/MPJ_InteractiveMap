@@ -43,5 +43,6 @@ public class Timer : MonoBehaviour
     public void TimeBoost()
     {
         timeRemaining += timeBoost;
+        TextMeshProUGUI text = transform.Find("st").GetComponent<TextMeshProUGUI>();
     }
 }

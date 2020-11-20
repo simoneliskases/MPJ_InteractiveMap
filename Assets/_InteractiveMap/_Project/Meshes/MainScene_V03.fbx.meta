@@ -18,7 +18,7 @@ ModelImporter:
       type: UnityEngine:Texture2D
       assembly: UnityEngine.CoreModule
       name: Map
-    second: {fileID: 2800000, guid: 0062e630414610c458620f44c9bf7966, type: 3}
+    second: {fileID: 2800000, guid: a16eb04dc8c8dee4fb00a2b13ca1db4d, type: 3}
   materials:
     materialImportMode: 1
     materialName: 0

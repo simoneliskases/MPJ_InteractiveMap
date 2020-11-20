@@ -32,8 +32,6 @@ public class GameManager : MonoBehaviour
 
         string playerName = PlayerPrefs.GetString("playerName");
 
-        print("The car identifier is " + carIdentifier);
-        print("Your name is " + playerName);
         timer.timerIsRunning = true;
     }
 
