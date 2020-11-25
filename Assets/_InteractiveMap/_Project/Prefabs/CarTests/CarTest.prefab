@@ -1994,6 +1994,7 @@ MonoBehaviour:
   rearPassengerTransform: {fileID: 6453444030346539505}
   maxSteerAngle: 30
   motorForce: 120
+  waterMotoForce: 50
   boostValue: 40
   boostTime: 15
 --- !u!114 &7296134213605395227

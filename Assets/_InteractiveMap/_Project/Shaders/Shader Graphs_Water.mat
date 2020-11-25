@@ -24,11 +24,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_825F9811: 0.8
-    - Vector1_CEF22DE8: 0.3
+    - Vector1_825F9811: 0.6
+    - Vector1_CEF22DE8: 0.5
     - Vector1_E2785D58: 0.1
     - Vector1_E6A70B3D: 1
     m_Colors:
-    - Color_3B5F71A3: {r: 0.25792095, g: 0.62789345, b: 0.8679245, a: 0}
-    - Color_74CA8297: {r: 0, g: 0.65682125, b: 1, a: 0}
+    - Color_3B5F71A3: {r: 0.3066038, g: 0.41631842, b: 1, a: 0}
+    - Color_74CA8297: {r: 0.43867922, g: 0.6534549, b: 1, a: 0}
   m_BuildTextureStacks: []
