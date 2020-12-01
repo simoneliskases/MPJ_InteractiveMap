@@ -12,12 +12,9 @@ public class Score : MonoBehaviour
     public int coinCount;
 
     public string highScorePos = "highScorePos";
-    public string highScoreName = "highScoreName";
     private int score;
     private int tempScore;
 
-    private string playerName;
-    private string tempName;
 
     private void Start()    
     {
@@ -33,7 +30,6 @@ public class Score : MonoBehaviour
     {
         levelIsCompleted = true;
         score = coinCount;
-        playerName = PlayerPrefs.GetString("playerName");
         
         for (int i=1; i<=5; i++)
         {
@@ -42,18 +38,12 @@ public class Score : MonoBehaviour
                 tempScore = PlayerPrefs.GetInt(highScorePos + i);
                 PlayerPrefs.SetInt(highScorePos + i, score);
 
-                tempName = PlayerPrefs.GetString(highScoreName + i);
-                PlayerPrefs.SetString(highScoreName, playerName);
-
                 if (i < 5)
                 {
                     int j = i + 1;
 
                     score = PlayerPrefs.GetInt(highScorePos + j);
                     PlayerPrefs.SetInt(highScorePos + j, tempScore);
-
-                    playerName = PlayerPrefs.GetString(highScoreName + j);
-                    PlayerPrefs.SetString(highScoreName, tempName);
                 }
             }
         }        
@@ -65,7 +55,7 @@ public class Score : MonoBehaviour
         {
             for(int i=1; i<=5; i++)
             {
-                GUI.Box(new Rect(100, 75 * i, 150, 50), "Platz " +i+ ": " + PlayerPrefs.GetString(highScoreName) + " - " + PlayerPrefs.GetInt(highScorePos + i));
+                GUI.Box(new Rect(100, 75 * i, 150, 50), "Platz " +i+ ": " + PlayerPrefs.GetInt(highScorePos + i));
             }
         }
     }

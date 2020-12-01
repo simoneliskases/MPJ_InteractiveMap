@@ -103,6 +103,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Car1Test
       objectReference: {fileID: 0}
+    - target: {fileID: 7296134213605395229, guid: 3fbadad5eb2a72447b5bb31fd2161b5e, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7296134213607396800, guid: 3fbadad5eb2a72447b5bb31fd2161b5e, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

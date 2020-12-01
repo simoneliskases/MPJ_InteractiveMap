@@ -26,7 +26,7 @@ public class CarController : MonoBehaviour
     public float maxSteerAngle = 30f;
     public float motorForce = 120f;
     public float boostValue;
-    public float boostTime;
+    public float boostTime; 
 
 
     //Car Movement
@@ -76,7 +76,6 @@ public class CarController : MonoBehaviour
         Accelerate();
         UpdateWheelPoses();
     }
-
 
     //Pickups
 
