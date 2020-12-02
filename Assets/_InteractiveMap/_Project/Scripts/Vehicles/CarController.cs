@@ -30,7 +30,6 @@ public class CarController : MonoBehaviour
 
 
     //Car Movement
-
     private void GetInput()
     {
         horizontalInput = Input.GetAxis("Horizontal");
@@ -77,11 +76,10 @@ public class CarController : MonoBehaviour
         UpdateWheelPoses();
     }
 
-    //Pickups
-
+    //Collectables
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.tag == "Coin")
+        if (other.gameObject.tag == "Coin")
         {
             score.coinCount++; 
             Destroy(other.gameObject);
