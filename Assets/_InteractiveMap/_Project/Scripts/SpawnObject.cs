@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class SpawnObject : MonoBehaviour
 {
-
-    public Terrain terrain;
-
     [Header("Coins")]
     public GameObject coinPrefab;
     public Vector3 coinSpawnCenter;
@@ -59,11 +56,25 @@ public class SpawnObject : MonoBehaviour
 
     private void SpawnCoin()
     {
-        Vector3 _pos = coinSpawnCenter + new Vector3(Random.Range(-coinSpawnSize.x / 2, coinSpawnSize.x / 2), 0f, Random.Range(-coinSpawnSize.z / 2, coinSpawnSize.z /2));
-        _pos.y = terrain.SampleHeight(_pos) - coinYPositionOffset;
+        Vector3 _pos = coinSpawnCenter + new Vector3(Random.Range(-coinSpawnSize.x / 2, coinSpawnSize.x / 2), 10f, Random.Range(-coinSpawnSize.z / 2, coinSpawnSize.z /2));
+        //_pos.y = YPosition(_pos);
 
         GameObject _coin = Instantiate(coinPrefab, _pos, Quaternion.identity);
         coinList.Add(_coin);
+    }
+
+    private float YPosition(Vector3 _pos)
+    {
+        RaycastHit _hit;
+        if (Physics.Raycast(transform.position, -Vector3.up, out _hit) && _hit.transform.gameObject.tag == "Ground")
+        {
+            return _hit.distance + coinYPositionOffset;
+        }
+        else
+        {
+            Debug.LogWarning("The Coin Spawn Size is larger than the terrain");
+            return 0;
+        }
     }
 
     private void OnDrawGizmosSelected()
