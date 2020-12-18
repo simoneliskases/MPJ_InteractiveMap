@@ -5,16 +5,19 @@ using TMPro;
 
 public class Score : MonoBehaviour
 {
-    private bool levelIsCompleted;
-
     public TextMeshProUGUI textField;
+    public string highScorePos = "highScorePos";
+    public string highScoreName = "highScoreName";
     [HideInInspector]
     public int coinCount;
 
-    public string highScorePos = "highScorePos";
-    private int score;
+    private int playerScore;
     private int tempScore;
 
+    private string playerName;
+    private string tempName;
+
+    private bool levelIsCompleted;
 
     private void Start()    
     {
@@ -29,33 +32,40 @@ public class Score : MonoBehaviour
     public void TimeIsOut()
     {
         levelIsCompleted = true;
-        score = coinCount;
-        
+        playerScore = coinCount;
+        playerName = PlayerPrefs.GetString("playerName");
+
         for (int i=1; i<=5; i++)
         {
-            if(PlayerPrefs.GetInt(highScorePos + i) < score)
+            if(PlayerPrefs.GetInt(highScorePos + i) < playerScore)
             {
                 tempScore = PlayerPrefs.GetInt(highScorePos + i);
-                PlayerPrefs.SetInt(highScorePos + i, score);
+                PlayerPrefs.SetInt(highScorePos + i, playerScore);
+
+                tempName = PlayerPrefs.GetString(highScoreName + i);
+                PlayerPrefs.SetString(highScoreName + i, playerName);
 
                 if (i < 5)
                 {
                     int j = i + 1;
 
-                    score = PlayerPrefs.GetInt(highScorePos + j);
+                    playerScore = PlayerPrefs.GetInt(highScorePos + j);
                     PlayerPrefs.SetInt(highScorePos + j, tempScore);
+
+                    playerName = PlayerPrefs.GetString(highScoreName + j);
+                    PlayerPrefs.SetString(highScoreName + j, tempName);
                 }
             }
-        }        
+        }
     }
 
     private void OnGUI()
     {
         if (levelIsCompleted)
         {
-            for(int i=1; i<=5; i++)
+            for (int i=1; i<=5; i++)
             {
-                GUI.Box(new Rect(100, 75 * i, 150, 50), "Platz " +i+ ": " + PlayerPrefs.GetInt(highScorePos + i));
+                GUI.Box(new Rect(100, 300+75*i, 250, 50), "Platz " +i+ ": " + PlayerPrefs.GetString(highScoreName + i) + " mit " + PlayerPrefs.GetInt(highScorePos + i) + " coins");
             }
         }
     }

@@ -1,15 +1,22 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class LeaderBoard : MonoBehaviour
 {
-    public int highScore;
-    public string highScoreKey = "HighScore";
+    public TextMeshProUGUI[] textFields;
 
-
-    private void Start()
+    private void OnEnable()
     {
-        highScore = PlayerPrefs.GetInt(highScoreKey, 0);
+        for(int i=1; i<=5; i++)
+        {
+            
+        }
+    }
+
+    private void DisplayScore(TextMeshProUGUI text)
+    {
+
     }
 }

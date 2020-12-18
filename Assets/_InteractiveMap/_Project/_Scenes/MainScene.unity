@@ -742,7 +742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0c7f7005d1523e4fa49631f6cdeebe1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeRemaining: 50
+  timeRemaining: 60
   timeBoost: 5
   textField: {fileID: 377758412}
   manager: {fileID: 1381829236}
@@ -760,8 +760,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textField: {fileID: 403690949}
-  coinCount: 0
   highScorePos: highScorePos
+  highScoreName: highScoreName
+  coinCount: 0
 --- !u!114 &1381829237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1408,6 +1409,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1717411420171520824, guid: 2a0553b843121464b8b47bd38e6c10cf, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3115590135892774641, guid: 2a0553b843121464b8b47bd38e6c10cf, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7227875179420695431, guid: 2a0553b843121464b8b47bd38e6c10cf, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8123471450133533062, guid: 2a0553b843121464b8b47bd38e6c10cf, type: 3}
       propertyPath: m_Name
       value: TerrainV07
