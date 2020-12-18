@@ -6,12 +6,13 @@ using TMPro;
 public class RestrictedSettings : MonoBehaviour
 {
     public GameObject settings, password, popUp;
-    public TextMeshProUGUI passwordInput;
-    public string _password;
+    public TMP_InputField passwordInput;
+    private string _password = "123";
 
-    private void Start()
+    private void OnEnable()
     {
         SetActive(false, true, false);
+        passwordInput.text = "";
     }
 
     private void Update()
@@ -24,8 +25,7 @@ public class RestrictedSettings : MonoBehaviour
             }
             else
             {
-                //Debug.LogWarning("The password is " + _password + ", but you wrote " + passwordInput.text);
-                SetActive(true, false, false);
+                Debug.LogWarning("The password is " + _password + ", but you wrote " + passwordInput.text);
             }
         }
     }

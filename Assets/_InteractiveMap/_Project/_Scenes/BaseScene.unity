@@ -173,7 +173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eee056c430f33b54a9f1a96a73b1f396, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputText: {fileID: 598672936}
+  inputText: {fileID: 979395330}
   playButton: {fileID: 49410446}
 --- !u!1 &49410446
 GameObject:
@@ -5015,8 +5015,7 @@ MonoBehaviour:
   settings: {fileID: 1844719490}
   password: {fileID: 833835236}
   popUp: {fileID: 1769710528}
-  passwordInput: {fileID: 1864250400}
-  _password: 1
+  passwordInput: {fileID: 818984413}
 --- !u!1 &1607516977
 GameObject:
   m_ObjectHideFlags: 0

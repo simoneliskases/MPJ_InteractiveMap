@@ -33,7 +33,7 @@ public class SpawnObject : MonoBehaviour
         {
             if(_coin != null)
             {
-                _coin.transform.Rotate(0, coinRotateSpeed, 0);
+                _coin.transform.Rotate(coinRotateSpeed, coinRotateSpeed, coinRotateSpeed);
             }
             else
             {
@@ -51,13 +51,13 @@ public class SpawnObject : MonoBehaviour
             SpawnCoin();
             coinStartTime = Random.Range(coinSpawnMinTime, coinSpawnMaxTime);
         }
-
     }
 
     private void SpawnCoin()
     {
         Vector3 _pos = coinSpawnCenter + new Vector3(Random.Range(-coinSpawnSize.x / 2, coinSpawnSize.x / 2), 10f, Random.Range(-coinSpawnSize.z / 2, coinSpawnSize.z /2));
-        //_pos.y = YPosition(_pos);
+
+        //_pos.y = YPosition(_pos);     
 
         GameObject _coin = Instantiate(coinPrefab, _pos, Quaternion.identity);
         coinList.Add(_coin);
@@ -76,6 +76,7 @@ public class SpawnObject : MonoBehaviour
             return 0;
         }
     }
+
 
     private void OnDrawGizmosSelected()
     {

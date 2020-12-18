@@ -48,8 +48,8 @@ public class InvokeMenu : MonoBehaviour
                 ChangeState(sceneManager.loadingScreen);
                 break;
             case CurrentState.PlaySlider:
-                StartCoroutine(LoadAsynchronously(2));
-                ChangeState(sceneManager.loadingScreen);
+                //StartCoroutine(LoadAsynchronously(2));
+                //ChangeState(sceneManager.loadingScreen);
                 break;
         }
     }

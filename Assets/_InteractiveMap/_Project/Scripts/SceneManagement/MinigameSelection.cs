@@ -5,7 +5,7 @@ using TMPro;
 
 public class MinigameSelection : MonoBehaviour
 {
-    public TextMeshProUGUI inputText;
+    public TMP_InputField inputText;
     public GameObject playButton;
 
     private string _playerName;
@@ -15,7 +15,7 @@ public class MinigameSelection : MonoBehaviour
     {
         _playerName = inputText.text;
 
-        if(_tempIdentifier != 0)
+        if(_tempIdentifier != 0 && inputText.text != "")
         {
             playButton.SetActive(true);
         }
