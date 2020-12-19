@@ -6,12 +6,17 @@ using TMPro;
 
 public class Timer : MonoBehaviour
 {
-    public float timeRemaining;
     public float timeBoost;
     public TextMeshProUGUI textField;
     public Score score;
     [HideInInspector]
     public bool timerIsRunning = false;
+    private float timeRemaining;
+
+    private void OnEnable()
+    {
+        timeRemaining = PlayerPrefs.GetFloat("minigameTime");
+    }
 
     private void Update()
     {

@@ -729,7 +729,7 @@ MonoBehaviour:
   coinSpawnMinTime: 5
   coinSpawnMaxTime: 10
   coinRotateSpeed: 0.5
-  maxCoinNumber: 10
+  maxCoinNumber: 5
 --- !u!114 &1381829235
 MonoBehaviour:
   m_ObjectHideFlags: 0

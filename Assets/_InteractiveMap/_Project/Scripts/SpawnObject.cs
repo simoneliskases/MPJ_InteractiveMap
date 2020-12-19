@@ -48,20 +48,12 @@ public class SpawnObject : MonoBehaviour
         }
         else if(coinList.Count < maxCoinNumber)
         {
-            SpawnCoin();
+            CalculatePosition();
             coinStartTime = Random.Range(coinSpawnMinTime, coinSpawnMaxTime);
         }
     }
 
-    private void SpawnCoin()
-    {
-        Vector3 _pos = Position();
-
-        GameObject _coin = Instantiate(coinPrefab, _pos, Quaternion.identity);
-        coinList.Add(_coin);
-    }
-
-    private Vector3 Position()
+    private void CalculatePosition()
     {
         float _xPosition = XPosition();
         float _zPosition = ZPosition();
@@ -71,13 +63,11 @@ public class SpawnObject : MonoBehaviour
         RaycastHit _hit;
         if (Physics.Raycast(_tempPosition, Vector3.down, out _hit) && _hit.transform.gameObject.tag == "Ground")
         {
-            Debug.Log("Raycast worked correctly");
-            return new Vector3(_xPosition, 15 - _hit.distance + coinYPositionOffset, _zPosition);
+            InstantiateCoin(new Vector3(_xPosition, 15 - _hit.distance + coinYPositionOffset, _zPosition));
         }
         else
         {
-            Debug.LogWarning("The Coin Spawn Size is larger than the terrain");
-            return new Vector3(_xPosition, 10, _zPosition);
+            CalculatePosition();
         }
     }
 
@@ -89,6 +79,12 @@ public class SpawnObject : MonoBehaviour
     private float ZPosition()
     {
         return coinSpawnCenter.z + Random.Range(-coinSpawnSize.z / 2, coinSpawnSize.z / 2);
+    }
+
+    private void InstantiateCoin(Vector3 _position)
+    {
+        GameObject _coin = Instantiate(coinPrefab, _position, Quaternion.identity);
+        coinList.Add(_coin);
     }
 
     private void OnDrawGizmosSelected()

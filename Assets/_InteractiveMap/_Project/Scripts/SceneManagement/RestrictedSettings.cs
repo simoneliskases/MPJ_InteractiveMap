@@ -7,12 +7,26 @@ public class RestrictedSettings : MonoBehaviour
 {
     public GameObject settings, password, popUp;
     public TMP_InputField passwordInput;
+    public TMP_Dropdown dropdown;
     private string _password = "123";
 
     private void OnEnable()
     {
         SetActive(false, true, false);
         passwordInput.text = "";
+
+        switch (PlayerPrefs.GetFloat("minigameTime"))
+        {
+            case 60:
+                dropdown.value = 0;
+                break;
+            case 90:
+                dropdown.value = 1;
+                break;
+            case 120:
+                dropdown.value = 2;
+                break;
+        }
     }
 
     private void Update()
@@ -43,6 +57,27 @@ public class RestrictedSettings : MonoBehaviour
     public void Cancel()
     {
         SetActive(true, false, false);
+    }
+
+    public void MinigameTimeInput()
+    {
+        switch (dropdown.value)
+        {
+            case 0:
+                ChangeMinigameTime(60);
+                break;
+            case 1:
+                ChangeMinigameTime(90);
+                break;
+            case 2:
+                ChangeMinigameTime(120);
+                break;
+        }
+    }
+
+    private void ChangeMinigameTime(float time)
+    {
+        PlayerPrefs.SetFloat("minigameTime", time);
     }
 
     private void OnDisable()
