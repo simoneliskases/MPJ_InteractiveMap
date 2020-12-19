@@ -11,7 +11,17 @@ public class Leaderboard : MonoBehaviour
     {
         for(int i=1; i<=5; i++)
         {
-            textFields[i-1].text = PlayerPrefs.GetString("highScoreName" + i) + ": " + PlayerPrefs.GetInt("highScorePos" + i);
+            string _highScoreName = PlayerPrefs.GetString("highScoreName" + i);
+            int _highScorePos = PlayerPrefs.GetInt("highScorePos" + i);
+
+            if(_highScoreName != null && _highScorePos != 0)
+            {
+                textFields[i - 1].text = _highScoreName + ": " + _highScorePos;
+            }
+            else
+            {
+                textFields[i - 1].text = "Not available";
+            }           
         }
     }
 }

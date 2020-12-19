@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class Timer : MonoBehaviour
@@ -8,7 +9,7 @@ public class Timer : MonoBehaviour
     public float timeRemaining;
     public float timeBoost;
     public TextMeshProUGUI textField;
-    public Score manager;
+    public Score score;
     [HideInInspector]
     public bool timerIsRunning = false;
 
@@ -25,7 +26,8 @@ public class Timer : MonoBehaviour
             {
                 timeRemaining = 0;
                 timerIsRunning = false;
-                manager.TimeIsOut();
+                score.TimeIsOut();
+                SceneManager.LoadScene(0);
             }
         }        
     }
@@ -43,6 +45,5 @@ public class Timer : MonoBehaviour
     public void TimeBoost()
     {
         timeRemaining += timeBoost;
-        TextMeshProUGUI text = transform.Find("st").GetComponent<TextMeshProUGUI>();
     }
 }

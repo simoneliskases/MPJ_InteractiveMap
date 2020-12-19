@@ -745,7 +745,7 @@ MonoBehaviour:
   timeRemaining: 60
   timeBoost: 5
   textField: {fileID: 377758412}
-  manager: {fileID: 1381829236}
+  score: {fileID: 1381829236}
   timerIsRunning: 0
 --- !u!114 &1381829236
 MonoBehaviour:
