@@ -55,28 +55,41 @@ public class SpawnObject : MonoBehaviour
 
     private void SpawnCoin()
     {
-        Vector3 _pos = coinSpawnCenter + new Vector3(Random.Range(-coinSpawnSize.x / 2, coinSpawnSize.x / 2), 10f, Random.Range(-coinSpawnSize.z / 2, coinSpawnSize.z /2));
-
-        //_pos.y = YPosition(_pos);     
+        Vector3 _pos = Position();
 
         GameObject _coin = Instantiate(coinPrefab, _pos, Quaternion.identity);
         coinList.Add(_coin);
     }
 
-    private float YPosition(Vector3 _pos)
+    private Vector3 Position()
     {
+        float _xPosition = XPosition();
+        float _zPosition = ZPosition();
+
+        Vector3 _tempPosition = new Vector3(_xPosition, 15, _zPosition);
+
         RaycastHit _hit;
-        if (Physics.Raycast(transform.position, -Vector3.up, out _hit) && _hit.transform.gameObject.tag == "Ground")
+        if (Physics.Raycast(_tempPosition, Vector3.down, out _hit) && _hit.transform.gameObject.tag == "Ground")
         {
-            return _hit.distance + coinYPositionOffset;
+            Debug.Log("Raycast worked correctly");
+            return new Vector3(_xPosition, 15 - _hit.distance + coinYPositionOffset, _zPosition);
         }
         else
         {
             Debug.LogWarning("The Coin Spawn Size is larger than the terrain");
-            return 0;
+            return new Vector3(_xPosition, 10, _zPosition);
         }
     }
 
+    private float XPosition()
+    {
+        return coinSpawnCenter.x + Random.Range(-coinSpawnSize.x / 2, coinSpawnSize.x / 2);
+    }
+
+    private float ZPosition()
+    {
+        return coinSpawnCenter.z + Random.Range(-coinSpawnSize.z / 2, coinSpawnSize.z / 2);
+    }
 
     private void OnDrawGizmosSelected()
     {
