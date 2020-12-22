@@ -5,17 +5,19 @@ using TMPro;
 
 public class RestrictedSettings : MonoBehaviour
 {
-    public GameObject settings, password, popUp;
+    public GameObject settings, password, popUp, back;
     public TMP_InputField passwordInput;
     public TMP_Dropdown dropdown;
     public TextMeshProUGUI popUpMessage;
 
     private string _password = "123";
     private int settingsID;
+    private float _tempMinigameTime;
 
     private void Awake()
     {
-        switch (PlayerPrefs.GetFloat("minigameTime"))
+        _tempMinigameTime = PlayerPrefs.GetFloat("minigameTime");
+        switch (_tempMinigameTime)
         {
             case 60:
                 dropdown.value = 0;
@@ -31,7 +33,7 @@ public class RestrictedSettings : MonoBehaviour
 
     private void OnEnable()
     {
-        SetActive(false, true, false);
+        SetActive(false, true, false, true);
         passwordInput.text = "";
     }
 
@@ -41,7 +43,7 @@ public class RestrictedSettings : MonoBehaviour
         {
             if (passwordInput.text == _password)
             {
-                SetActive(true, false, false);
+                SetActive(true, false, false, true);
             }
             else
             {
@@ -52,7 +54,7 @@ public class RestrictedSettings : MonoBehaviour
 
     public void DeleteDataInput() //ID = 1
     {
-        SetActive(false, false, true);
+        SetActive(false, false, true, false);
         ChangePopUpMessage("Do you really want to delete all data ?");
         settingsID = 1;
     }
@@ -64,14 +66,14 @@ public class RestrictedSettings : MonoBehaviour
 
     public void MinigameTimeInput() //ID = 2
     {
-        SetActive(false, false, true);
+        SetActive(false, false, true, false);
         ChangePopUpMessage("Do you really want to change the minigame time? All highscores will be lost!");
         settingsID = 2;
     }
 
     private void ChangeMinigameTime()
     {
-        float time = 0;
+        float time = _tempMinigameTime;
         switch (dropdown.value)
         {
             case 0:
@@ -101,7 +103,7 @@ public class RestrictedSettings : MonoBehaviour
 
     public void Submit()
     {
-        SetActive(true, false, false);
+        SetActive(true, false, false, true);
 
         switch (settingsID)
         {
@@ -116,18 +118,19 @@ public class RestrictedSettings : MonoBehaviour
 
     public void Cancel()
     {
-        SetActive(true, false, false);
+        SetActive(true, false, false, true);
     }
 
     private void OnDisable()
     {
-        SetActive(false, false, false);
+        SetActive(false, false, false, true);
     }
 
-    private void SetActive(bool _settings, bool _password, bool _popUp)
+    private void SetActive(bool _settings, bool _password, bool _popUp, bool _back)
     {
         settings.SetActive(_settings);
         password.SetActive(_password);
         popUp.SetActive(_popUp);
+        back.SetActive(_back);
     }
 }

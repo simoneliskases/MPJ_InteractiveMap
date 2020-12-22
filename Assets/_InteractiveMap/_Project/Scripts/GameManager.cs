@@ -8,13 +8,15 @@ public class GameManager : MonoBehaviour
     public Transform carSpawnPoint;
     public Timer timer;
 
+    private GameObject _instantiatedCar;
+
     private void OnEnable()
     {
         StartGame();
     }
 
     private void StartGame()
-    {
+    {        
         int carIdentifier = PlayerPrefs.GetInt("carIdentifier");
         switch (carIdentifier)
         {
@@ -29,7 +31,6 @@ public class GameManager : MonoBehaviour
                 break;
         }
 
-
         string playerName = PlayerPrefs.GetString("playerName");
 
         timer.timerIsRunning = true;
@@ -39,12 +40,21 @@ public class GameManager : MonoBehaviour
     {
         if(_car != null)
         {
-            GameObject _instantiatedCar = Instantiate(_car, carSpawnPoint);
+            _instantiatedCar = Instantiate(_car, carSpawnPoint);
             _instantiatedCar.SetActive(true);
+            SetSingleton();
         }
         else
         {
             Debug.LogWarning("Car isn't available");
         }
     }
+
+    #region Singleton
+    private void SetSingleton()
+    {
+        currentCar = _instantiatedCar;
+    }
+    public static GameObject currentCar;
+    #endregion
 }

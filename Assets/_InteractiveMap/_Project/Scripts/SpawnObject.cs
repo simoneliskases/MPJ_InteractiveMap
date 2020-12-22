@@ -21,9 +21,9 @@ public class SpawnObject : MonoBehaviour
     private float coinStartTime;
     private List<GameObject> coinList = new List<GameObject>();
 
-
     private void Start()
     {
+        CalculatePosition();
         coinStartTime = Random.Range(coinSpawnMinTime, coinSpawnMaxTime);
     }
 
