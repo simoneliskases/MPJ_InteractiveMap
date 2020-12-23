@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2348299464056403637}
   - component: {fileID: 8569416330508100287}
   - component: {fileID: 3508116653979645574}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pSphere11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1466103094954989317}
   - component: {fileID: 8771180290616135200}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RearPassengerWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +153,7 @@ GameObject:
   - component: {fileID: 8691413637717031323}
   - component: {fileID: 1943312815938918796}
   - component: {fileID: 7161139369968449354}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -234,7 +234,7 @@ GameObject:
   - component: {fileID: 3764151476429104276}
   - component: {fileID: 261418579270437877}
   - component: {fileID: 8343451146199927170}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pSphere18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -315,7 +315,7 @@ GameObject:
   - component: {fileID: 7715701838409065506}
   - component: {fileID: 6230720308767619067}
   - component: {fileID: 5227136530362252603}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pSphere10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -396,7 +396,7 @@ GameObject:
   - component: {fileID: 6443450118762333125}
   - component: {fileID: 9123858553883215547}
   - component: {fileID: 7055593412125744042}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pSphere16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -477,7 +477,7 @@ GameObject:
   - component: {fileID: 2269313353494233353}
   - component: {fileID: 5579996416993805968}
   - component: {fileID: 6467103067832374681}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCube5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -560,7 +560,7 @@ GameObject:
   - component: {fileID: 8130530143798404087}
   - component: {fileID: 3841637150934890237}
   - component: {fileID: 6399330678627385718}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: kaefer_model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -617,9 +617,11 @@ MonoBehaviour:
   rearDriverTransform: {fileID: 4172241753848652382}
   rearPassengerTransform: {fileID: 2756191017692737853}
   maxSteerAngle: 30
-  motorForce: 120
+  groundMotorForce: 120
+  waterMotorForce: 90
   boostValue: 40
   boostTime: 15
+  _tempMotorForce: 0
 --- !u!54 &8130530143798404087
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -673,7 +675,7 @@ GameObject:
   - component: {fileID: 4099801080113042454}
   - component: {fileID: 8944742627689708293}
   - component: {fileID: 4688534756398624661}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pSphere13 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -754,7 +756,7 @@ GameObject:
   - component: {fileID: 4935593940294706014}
   - component: {fileID: 3990946792825850677}
   - component: {fileID: 1372464740778148008}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "Fl\xFCgel2"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -835,7 +837,7 @@ GameObject:
   - component: {fileID: 4278981969646875006}
   - component: {fileID: 2697305466116636477}
   - component: {fileID: 7700869421697857526}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pTorus4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -914,7 +916,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1584844325734058320}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Main_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -950,7 +952,7 @@ GameObject:
   - component: {fileID: 2323089819599478574}
   - component: {fileID: 8057064043593331333}
   - component: {fileID: 4480902918166908937}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pSphere3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1029,7 +1031,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 889003255243098165}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tueren
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1064,7 +1066,7 @@ GameObject:
   - component: {fileID: 6046851245424045329}
   - component: {fileID: 5649755803007587615}
   - component: {fileID: 3580237810308768034}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCylinder21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1145,7 +1147,7 @@ GameObject:
   - component: {fileID: 1852513546073478816}
   - component: {fileID: 2226526715652967626}
   - component: {fileID: 3010801012219937509}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pTorus1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1224,7 +1226,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7407027426325178393}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Ramen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1258,7 +1260,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4172241753848652382}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RearDriverWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1292,7 +1294,7 @@ GameObject:
   - component: {fileID: 5797904084322460973}
   - component: {fileID: 7805298498667645185}
   - component: {fileID: 9088023620083753569}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCylinder11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1371,7 +1373,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3532026987748847510}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Wheels
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1405,7 +1407,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7151682501012501327}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lampe1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1439,7 +1441,7 @@ GameObject:
   - component: {fileID: 3649545071898605731}
   - component: {fileID: 1042105146997412114}
   - component: {fileID: 4795436076495853739}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCylinder17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1518,7 +1520,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4788753853842351903}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FrontPassengerWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1552,7 +1554,7 @@ GameObject:
   - component: {fileID: 3681419224590810614}
   - component: {fileID: 3304493661412366087}
   - component: {fileID: 2747949920274084835}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCylinder13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1633,7 +1635,7 @@ GameObject:
   - component: {fileID: 2694100520826286171}
   - component: {fileID: 8939999272940437661}
   - component: {fileID: 4822710720507959891}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pTorus5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1714,7 +1716,7 @@ GameObject:
   - component: {fileID: 5965167161718471713}
   - component: {fileID: 878541288444276921}
   - component: {fileID: 8601830087906453686}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pTorus7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1795,7 +1797,7 @@ GameObject:
   - component: {fileID: 2161529643355841614}
   - component: {fileID: 6556837174128108028}
   - component: {fileID: 2064502810026890762}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: main_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1876,7 +1878,7 @@ GameObject:
   - component: {fileID: 8799879463317288676}
   - component: {fileID: 7214485926636310563}
   - component: {fileID: 1335973960467660022}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pSphere15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1956,7 +1958,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7791276981726323559}
   - component: {fileID: 3004998553979006593}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FrontDriverWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2018,7 +2020,7 @@ GameObject:
   - component: {fileID: 8401801569077813768}
   - component: {fileID: 7531584115908147423}
   - component: {fileID: 581615516370877910}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCylinder22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2099,7 +2101,7 @@ GameObject:
   - component: {fileID: 6283985503636332548}
   - component: {fileID: 805204405893236393}
   - component: {fileID: 6987447125451203837}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCylinder12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2180,7 +2182,7 @@ GameObject:
   - component: {fileID: 611762005645737642}
   - component: {fileID: 8914758813004826354}
   - component: {fileID: 9006547834825951755}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pTorus8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2259,7 +2261,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5413424587697870077}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: WheelColliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2293,7 +2295,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2756191017692737853}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RearPassengerWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2327,7 +2329,7 @@ GameObject:
   - component: {fileID: 5694600919560084940}
   - component: {fileID: 2033503673494793694}
   - component: {fileID: 1994855254943365464}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pSphere8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2408,7 +2410,7 @@ GameObject:
   - component: {fileID: 2842653715055594793}
   - component: {fileID: 5602479000175941865}
   - component: {fileID: 545643380076077515}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "Fl\xFCgel1"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2487,7 +2489,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3093335705375771847}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Reifen5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2520,7 +2522,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3686081029486295235}
   - component: {fileID: 4661833823706849670}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FrontPassengerWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2582,7 +2584,7 @@ GameObject:
   - component: {fileID: 7591228757684768617}
   - component: {fileID: 6361512505343593453}
   - component: {fileID: 4583993591304278452}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pSphere1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2663,7 +2665,7 @@ GameObject:
   - component: {fileID: 116208404554802664}
   - component: {fileID: 4048853010228819873}
   - component: {fileID: 8907895076398363664}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pSphere9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2744,7 +2746,7 @@ GameObject:
   - component: {fileID: 4625547138893061813}
   - component: {fileID: 6656210035395118153}
   - component: {fileID: 1209571845811244159}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pSphere14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2823,7 +2825,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7029267464683147381}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FrontDriverWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2857,7 +2859,7 @@ GameObject:
   - component: {fileID: 1623425696663530572}
   - component: {fileID: 5625155671164218672}
   - component: {fileID: 280205436818891795}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pTorus6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2938,7 +2940,7 @@ GameObject:
   - component: {fileID: 7175437749348196809}
   - component: {fileID: 6880559205175099545}
   - component: {fileID: 5058755366113139769}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCylinder15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3017,7 +3019,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 893366975220659372}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Lampe2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3051,7 +3053,7 @@ GameObject:
   - component: {fileID: 5424013163608329538}
   - component: {fileID: 2225736026297843191}
   - component: {fileID: 3068054161594689430}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: frontscheibe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3132,7 +3134,7 @@ GameObject:
   - component: {fileID: 7551855044367524981}
   - component: {fileID: 2515199533387116273}
   - component: {fileID: 5957731403075874659}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCylinder16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3213,7 +3215,7 @@ GameObject:
   - component: {fileID: 3000577449544628183}
   - component: {fileID: 6397849660252678533}
   - component: {fileID: 6230910486563982808}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pSphere19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3292,7 +3294,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5103276345674217459}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "Fl\xFCgel3"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3326,7 +3328,7 @@ GameObject:
   m_Component:
   - component: {fileID: 966920316616325412}
   - component: {fileID: 8198177246789493082}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: RearDriverWheel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3386,7 +3388,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3993892143682050681}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: "Fl\xFCgel4"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3421,7 +3423,7 @@ GameObject:
   - component: {fileID: 7763142031831069781}
   - component: {fileID: 3961489846438901056}
   - component: {fileID: 6167816252923731923}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pCylinder14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3502,7 +3504,7 @@ GameObject:
   - component: {fileID: 5710132690103929306}
   - component: {fileID: 7716491363483215384}
   - component: {fileID: 8407512673374155693}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pSphere13
   m_TagString: Untagged
   m_Icon: {fileID: 0}

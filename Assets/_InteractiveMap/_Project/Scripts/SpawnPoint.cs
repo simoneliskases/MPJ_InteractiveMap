@@ -35,7 +35,7 @@ public class SpawnPoint : MonoBehaviour
         List<float> _zCoordinates = new List<float>();
 
         float _xSummand = (_rightTopCorner.x - _leftTopCorner.x) / xResolution;
-        float _zSummand = (_rightTopCorner.z - _rightBottomCorner.z) / zResolution;
+        float _zSummand = (_rightBottomCorner.z - _rightTopCorner.z) / zResolution;
 
         for (int i = 0; i <= xResolution; i++)
         {
@@ -45,32 +45,39 @@ public class SpawnPoint : MonoBehaviour
         for (int i = 0; i <= zResolution; i++)
         {
             _zCoordinates.Add(_leftTopCorner.z + (_zSummand * i));
-        }       
-        
-        foreach(var _x in _xCoordinates)
+        }
+
+        foreach (var _x in _xCoordinates)
         {
-            foreach(var _z in _zCoordinates)
+            foreach (var _z in _zCoordinates)
             {
                 _allSpawnPoints.Add(new Vector3(_x, _spawnHeight, _z));
             }
         }
-              
-        foreach(var _spawnPoint in _allSpawnPoints)
+
+        List<Vector3> _unspawnableArea = new List<Vector3>();
+        foreach (var _spawnPoint in _allSpawnPoints)
         {
             RaycastHit _hit;
-             
-            if(Physics.Raycast(_spawnPoint, Vector3.down, out _hit) && _hit.transform.gameObject.tag != "Ground")
+
+            if (Physics.Raycast(_spawnPoint, Vector3.down, out _hit) && _hit.transform.gameObject.tag != "Ground" && _hit.transform.gameObject.tag != "Car")
             {
-                _allSpawnPoints.Remove(_spawnPoint);
+                _unspawnableArea.Add(_spawnPoint);
             }
+        }
+
+        foreach(var _spawnPoint in _unspawnableArea)
+        {
+            _allSpawnPoints.Remove(_spawnPoint);
         }
     }
 
     private void Start()
     {
         _car = GameManager.currentCar;
-        SpawnCoin();
         _coinStartTime = Random.Range(coinSpawnMinTime, coinSpawnMaxTime);
+
+        SpawnCoin();
     }
 
     private void Update()
@@ -125,28 +132,40 @@ public class SpawnPoint : MonoBehaviour
     private void RecalculateCurrentSpawnPoints()
     {
         _currentSpawnPoints = _allSpawnPoints;
+        List<Vector3> _nearCar = new List<Vector3>();
 
         foreach(var _spawnPoint in _currentSpawnPoints)
         {
             float _distance = Distance(_car.transform.position, _spawnPoint);
             if(_distance < carMaxDistance)
             {
-                _currentSpawnPoints.Remove(_spawnPoint);
+                _nearCar.Add(_spawnPoint);
             }
+        }
+
+        foreach(var _spawnPoint in _nearCar)
+        {
+            _currentSpawnPoints.Remove(_spawnPoint);
         }
     }
 
     private void RecalculateAllSpawnPoints(Vector3 _lastSpawnPoint)
     {
         _allSpawnPoints.Remove(_lastSpawnPoint);
+        List<Vector3> _nearCoin = new List<Vector3>();
 
         foreach (var _spawnPoint in _allSpawnPoints)
         {
             float _distance = Distance(_lastSpawnPoint, _spawnPoint);
             if(_distance < coinMaxDistance)
             {
-                _allSpawnPoints.Remove(_spawnPoint);
+                _nearCoin.Add(_spawnPoint);
             }
+        }
+
+        foreach(var _spawnPoint in _nearCoin)
+        {
+            _allSpawnPoints.Remove(_spawnPoint);
         }
     }
 
@@ -161,6 +180,6 @@ public class SpawnPoint : MonoBehaviour
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = new Color(1, 0, 0, 0.5f);
-        //Gizmos.DrawCube(coinSpawnCenter, coinSpawnSize);
+        Gizmos.DrawCube(coinSpawnCenter, coinSpawnSize);
     }
 }

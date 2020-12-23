@@ -6,12 +6,6 @@ public class CarController : MonoBehaviour
 {
     public Score score;
     public Timer timer;
-
-    [Header("Car Movement")]
-    private float horizontalInput;
-    private float verticalInput;
-    private float steerAngle;
-    private bool isBoosted;
     
     public WheelCollider frontDriverWheel;
     public WheelCollider frontPassengerWheel;
@@ -24,9 +18,22 @@ public class CarController : MonoBehaviour
     public Transform rearPassengerTransform;
 
     public float maxSteerAngle = 30f;
-    public float motorForce = 120f;
+    public float groundMotorForce = 120f;
+    public float waterMotorForce = 90f;
     public float boostValue;
     public float boostTime;
+
+    private float horizontalInput;
+    private float verticalInput;
+    private float steerAngle;
+    private bool isBoosted;
+
+    public float _tempMotorForce;
+
+    private void Start()
+    {
+        _tempMotorForce = groundMotorForce;
+    }
 
     //Car Movement
     private void GetInput()
@@ -44,8 +51,8 @@ public class CarController : MonoBehaviour
 
     private void Accelerate()
     {
-        frontDriverWheel.motorTorque = verticalInput * motorForce;
-        frontPassengerWheel.motorTorque = verticalInput * motorForce;
+        frontDriverWheel.motorTorque = verticalInput * _tempMotorForce;
+        frontPassengerWheel.motorTorque = verticalInput * _tempMotorForce;
     }
 
     private void UpdateWheelPoses()
@@ -96,13 +103,13 @@ public class CarController : MonoBehaviour
             {
                 Destroy(other.gameObject);
 
-                motorForce += boostValue;
+                _tempMotorForce += boostValue;
                 isBoosted = true;
                 float _currentTime = Time.deltaTime;
 
                 if(_currentTime > boostTime)
                 {
-                    motorForce -= boostValue;
+                    _tempMotorForce -= boostValue;
                     isBoosted = false;
                 }
             }

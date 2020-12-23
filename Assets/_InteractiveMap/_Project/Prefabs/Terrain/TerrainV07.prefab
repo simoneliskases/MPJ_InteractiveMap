@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4593003045246324057}
   - component: {fileID: 4027898832686661568}
   - component: {fileID: 2766914642468703860}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Ground
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -502,7 +502,7 @@ GameObject:
   - component: {fileID: 2779995355284577469}
   - component: {fileID: 6597864188110341372}
   - component: {fileID: 1150284527024324874}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LakeTwo
   m_TagString: Water
   m_Icon: {fileID: 0}
@@ -636,7 +636,7 @@ GameObject:
   - component: {fileID: 5187381070528882993}
   - component: {fileID: 2862234927846232295}
   - component: {fileID: 4546624582944494355}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LakeOne
   m_TagString: Water
   m_Icon: {fileID: 0}
