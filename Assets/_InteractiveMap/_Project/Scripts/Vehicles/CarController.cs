@@ -18,8 +18,7 @@ public class CarController : MonoBehaviour
     public Transform rearPassengerTransform;
 
     public float maxSteerAngle = 30f;
-    public float groundMotorForce = 120f;
-    public float waterMotorForce = 90f;
+    public float motorForce = 120f;
     public float boostValue;
     public float boostTime;
 
@@ -28,12 +27,6 @@ public class CarController : MonoBehaviour
     private float steerAngle;
     private bool isBoosted;
 
-    public float _tempMotorForce;
-
-    private void Start()
-    {
-        _tempMotorForce = groundMotorForce;
-    }
 
     //Car Movement
     private void GetInput()
@@ -51,8 +44,8 @@ public class CarController : MonoBehaviour
 
     private void Accelerate()
     {
-        frontDriverWheel.motorTorque = verticalInput * _tempMotorForce;
-        frontPassengerWheel.motorTorque = verticalInput * _tempMotorForce;
+        frontDriverWheel.motorTorque = verticalInput * motorForce;
+        frontPassengerWheel.motorTorque = verticalInput * motorForce;
     }
 
     private void UpdateWheelPoses()
@@ -85,34 +78,30 @@ public class CarController : MonoBehaviour
     //Collectables
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Coin")
+        switch (other.gameObject.tag)
         {
-            score.coinCount++; 
-            Destroy(other.gameObject);
-        }
-
-        if(other.gameObject.tag == "TimeBoost")
-        {
-            timer.TimeBoost();
-            Destroy(other.gameObject);
-        }
-
-        if(other.gameObject.tag == "SpeedBoost")
-        {
-            if (!isBoosted)
-            {
-                Destroy(other.gameObject);
-
-                _tempMotorForce += boostValue;
-                isBoosted = true;
-                float _currentTime = Time.deltaTime;
-
-                if(_currentTime > boostTime)
+            case "Coin":
+                score.coinCount++;
+                break;
+            case "TimeBoost":
+                timer.TimeBoost();
+                break;
+            case "SpeedBoost":
+                if (!isBoosted)
                 {
-                    _tempMotorForce -= boostValue;
-                    isBoosted = false;
+                    Destroy(other.gameObject);
+
+                    motorForce += boostValue;
+                    isBoosted = true;
+                    float _currentTime = Time.deltaTime;
+
+                    if (_currentTime > boostTime)
+                    {
+                        motorForce -= boostValue;
+                        isBoosted = false;
+                    }
                 }
-            }
+                break;
         }
     }
 }

@@ -7,6 +7,8 @@ public class SpawnPoint : MonoBehaviour
     public GameObject coinPrefab;
     public Vector3 coinSpawnCenter;
     public Vector3 coinSpawnSize;
+    public bool despawnCoins;
+    public float despawnDelay;
     public float coinYPositionOffset;
     public float coinSpawnMinTime;
     public float coinSpawnMaxTime;
@@ -20,6 +22,7 @@ public class SpawnPoint : MonoBehaviour
     private float _coinStartTime;
     private float _spawnHeight = 15f;
     private GameObject _car;
+    private GameObject _empty;
     private List<GameObject> _coinList = new List<GameObject>();
     private List<Vector3> _allSpawnPoints = new List<Vector3>();
     private List<Vector3> _currentSpawnPoints = new List<Vector3>();
@@ -70,6 +73,8 @@ public class SpawnPoint : MonoBehaviour
         {
             _allSpawnPoints.Remove(_spawnPoint);
         }
+
+        _empty = new GameObject("Coins");
     }
 
     private void Start()
@@ -114,7 +119,13 @@ public class SpawnPoint : MonoBehaviour
         _spawnPoint.y = YPosition(_spawnPoint.x, _spawnPoint.z);
 
         GameObject _coin = Instantiate(coinPrefab, _spawnPoint, Quaternion.identity);
+        _coin.transform.parent = _empty.transform;
         _coinList.Add(_coin);
+
+        if (despawnCoins)
+        {
+            Destroy(_coin, despawnDelay);
+        }
 
         RecalculateAllSpawnPoints(_spawnPoint);
     }
@@ -174,7 +185,7 @@ public class SpawnPoint : MonoBehaviour
         float _xDistance = _endPoint.x - _startPoint.x;
         float _zDistance = _endPoint.z - _startPoint.z;
 
-        return Mathf.Sqrt((_xDistance * _xDistance) + (_zDistance * _zDistance));
+        return Mathf.Sqrt(Mathf.Pow(_xDistance, 2) + Mathf.Pow(_zDistance, 2));
     }
 
     private void OnDrawGizmosSelected()
@@ -182,4 +193,6 @@ public class SpawnPoint : MonoBehaviour
         Gizmos.color = new Color(1, 0, 0, 0.5f);
         Gizmos.DrawCube(coinSpawnCenter, coinSpawnSize);
     }
+
+    //After the coin has been collected by the car, add the spawnPoint of the coin back to _allSpawnPoints
 }

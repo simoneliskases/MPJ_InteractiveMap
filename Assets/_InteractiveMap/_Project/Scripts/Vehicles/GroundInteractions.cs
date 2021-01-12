@@ -5,18 +5,20 @@ using UnityEngine;
 public class GroundInteractions : MonoBehaviour
 {
     public CarController carController;
+    public Rigidbody carRigidbody;
 
-    private void OnCollisionEnter(Collision collision)
+    public float groundDrag = 0;
+    public float waterDrag = 2;
+
+    private void OnTriggerStay(Collider other)
     {
-        print("Collision");
-        switch (collision.gameObject.tag)
+        if(other.gameObject.tag == "Water")
         {
-            case ("Ground"):
-                carController._tempMotorForce = carController.groundMotorForce;
-                break;
-            case ("Water"):
-                carController._tempMotorForce = carController.waterMotorForce;
-                break;
+            carRigidbody.drag = 2;
+        }
+        else if(other.gameObject.tag == "Ground")
+        {
+            carRigidbody.drag = 0;
         }
     }
 }

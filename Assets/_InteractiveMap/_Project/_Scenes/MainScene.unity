@@ -639,7 +639,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1375652756
 GameObject:
@@ -813,13 +813,15 @@ MonoBehaviour:
   coinPrefab: {fileID: 8389618712651135303, guid: 0692ccd3f14f5634195183b5e727d167, type: 3}
   coinSpawnCenter: {x: 0, y: 0, z: 0}
   coinSpawnSize: {x: 45, y: 10, z: 30}
+  despawnCoins: 0
+  despawnDelay: 20
   coinYPositionOffset: 0.5
   coinSpawnMinTime: 1
   coinSpawnMaxTime: 2
   coinRotateSpeed: 0.5
   xResolution: 25
   zResolution: 25
-  coinMaxDistance: 2
+  coinMaxDistance: 3
   carMaxDistance: 5
   maxCoinNumber: 100
 --- !u!81 &1381829241
@@ -1428,14 +1430,6 @@ PrefabInstance:
       propertyPath: timer
       value: 
       objectReference: {fileID: 1381829235}
-    - target: {fileID: 6384205570716105891, guid: 2b8829542c4b1ed46882dd16d0377482, type: 3}
-      propertyPath: waterMotoForce
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6384205570716105891, guid: 2b8829542c4b1ed46882dd16d0377482, type: 3}
-      propertyPath: layerMask.m_Bits
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2b8829542c4b1ed46882dd16d0377482, type: 3}
 --- !u!1 &1800114765301312974 stripped
@@ -1568,7 +1562,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8932765147564133180, guid: 2a0553b843121464b8b47bd38e6c10cf, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8932765147564133180, guid: 2a0553b843121464b8b47bd38e6c10cf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
