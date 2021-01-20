@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-5002865875822883405
+--- !u!114 &-5364418900656961239
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Slice Shader
-  m_Shader: {fileID: 4800000, guid: 52f55a81b8191a4438eceae11158d879, type: 3}
+  m_Name: FresnelCrossSection
+  m_Shader: {fileID: -6465566751694194690, guid: 02e73162a18de2443bd5b97e99a21a15, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -69,9 +69,9 @@ Material:
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _GlossMapScale: 0
-    - _Glossiness: 0.181
+    - _Glossiness: 0
     - _GlossyReflections: 0
-    - _Metallic: 0.303
+    - _Metallic: 0
     - _OcclusionStrength: 1
     - _QueueOffset: 0
     - _ReceiveShadows: 1
@@ -82,12 +82,11 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - sliceOffsetDst: 0
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Color: {r: 0.7075472, g: 0.25031152, b: 0.25031152, a: 1}
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - sliceCentre: {r: 0, g: 0, b: 0, a: 0}
-    - sliceNormal: {r: 0, g: 0, b: 0, a: 0}
+    - _planeNormal: {r: 0, g: 0, b: 1, a: 0}
+    - _planePosition: {r: 0.3184896, g: 11.67, b: -2.971871, a: 0}
   m_BuildTextureStacks: []
