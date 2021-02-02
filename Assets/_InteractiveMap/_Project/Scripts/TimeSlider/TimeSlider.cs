@@ -5,22 +5,29 @@ using UnityEngine.UI;
 
 public class TimeSlider : StateMachine
 {
-    public GameObject knive;
     public GameObject mapOne;
     public GameObject mapTwo;
-    public GameObject mapThree;
+    public GameObject kniveOne;
+    public GameObject kniveTwo;
+    public GameObject previousButton;
+    public GameObject nextButton;
     public Slider slider;
-    public AnimationCurve slideCurve;
-    public float slideDuration;
     public float sliderStartValue;
-    public float sliderEndValue;
+    public float sliderThreshold;
+    public float slideDuration;
+    public AnimationCurve curve;
 
     private void OnEnable()
     {
         slider.minValue = sliderStartValue;
-        slider.maxValue = sliderEndValue;
+        slider.maxValue = sliderStartValue + (sliderThreshold - sliderStartValue) * 2;
 
-        SetState(new MapOne(this));
+        SetState(new StateOne(this));
+    }
+
+    private void Start()
+    {
+        slider.value = sliderStartValue;
     }
 
     public void OnValueChanged()
@@ -29,5 +36,15 @@ public class TimeSlider : StateMachine
         {
             StartCoroutine(State.Slide());
         }
+    }
+
+    public void Next()
+    {
+        StartCoroutine(State.Next());
+    }
+
+    public void Previous()
+    {
+        StartCoroutine(State.Previous());
     }
 }

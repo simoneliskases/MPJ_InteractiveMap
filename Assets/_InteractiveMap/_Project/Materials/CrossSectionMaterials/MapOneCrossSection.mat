@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: MapCrossSection
+  m_Name: MapOneCrossSection
   m_Shader: {fileID: -6465566751694194690, guid: ebd858f4d80971c4b87266bb963aa861, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -88,7 +88,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _planeNormal: {r: 1.0000001, g: -0.00000011920929, b: 0, a: 0}
-    - _planePosition: {r: 49.8, g: 4, b: -7.24, a: 0}
+    - _planePosition: {r: 45.406788, g: 8.1, b: -7.2400002, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &5081801753213982860
 MonoBehaviour:

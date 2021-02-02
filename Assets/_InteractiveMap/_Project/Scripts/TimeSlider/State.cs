@@ -21,7 +21,12 @@ public class State
         yield break;
     }
 
-    public virtual IEnumerator Exit()
+    public virtual IEnumerator Next()
+    {
+        yield break;
+    }
+
+    public virtual IEnumerator Previous()
     {
         yield break;
     }

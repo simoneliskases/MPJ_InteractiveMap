@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WaterCrossSection
+  m_Name: WaterThreeCrossSection
   m_Shader: {fileID: -6465566751694194690, guid: a2003fa34a817694c826672655b6750e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -29,8 +29,8 @@ Material:
     - Vector1_E2785D58: 0.8
     - Vector1_E6A70B3D: 2
     m_Colors:
-    - Color_3B5F71A3: {r: 0.21106264, g: 0.8773585, b: 0.8773585, a: 1}
+    - Color_3B5F71A3: {r: 0.8490566, g: 0.16420433, b: 0.24330606, a: 1}
     - Color_74CA8297: {r: 0.22432362, g: 0.5438148, b: 0.6698113, a: 1}
     - _planeNormal: {r: 1.0000001, g: -0.00000011920929, b: 0, a: 0}
-    - _planePosition: {r: 49.8, g: 4, b: -7.24, a: 0}
+    - _planePosition: {r: 30.268791, g: 8.100002, b: -7.2400007, a: 0}
   m_BuildTextureStacks: []
