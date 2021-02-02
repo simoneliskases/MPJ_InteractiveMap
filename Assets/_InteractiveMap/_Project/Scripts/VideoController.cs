@@ -107,10 +107,10 @@ public class VideoController : MonoBehaviour
 
     public void LoadVideo(string msg)
     {
-        string temp = Application.dataPath + "/Videos/" + name;
-        if (video.url == temp) return;
+        string _temp = Application.dataPath + "/Videos/" + name; /*.mp4,.avi,.mov*/
+        if (video.url == _temp) return;
 
-        video.url = temp;
+        video.url = _temp;
         video.Prepare();
 
         Debug.Log("can set direct audio volume: " + video.canSetDirectAudioVolume);
