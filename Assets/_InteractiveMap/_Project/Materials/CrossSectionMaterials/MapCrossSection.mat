@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Textured
+  m_Name: MapCrossSection
   m_Shader: {fileID: -6465566751694194690, guid: ebd858f4d80971c4b87266bb963aa861, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -48,7 +48,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _baseMap:
-        m_Texture: {fileID: 2800000, guid: 74320ca1d1d29b940bd120754926033a, type: 3}
+        m_Texture: {fileID: 2800000, guid: 5bd8c267b4793d842b24414da509c0fb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _bumpMap:
@@ -81,13 +81,14 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
+    - _smoothness: 0.3
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _planeNormal: {r: -0.7071068, g: -0.00000008940697, b: 0.7071068, a: 0}
-    - _planePosition: {r: -13, g: 7.7, b: 13.4, a: 0}
+    - _planeNormal: {r: 1.0000001, g: -0.00000011920929, b: 0, a: 0}
+    - _planePosition: {r: 49.8, g: 4, b: -7.24, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &5081801753213982860
 MonoBehaviour:
