@@ -7,4 +7,9 @@ public class MapTwo : State
     public MapTwo(TimeSlider _timeSlider) : base(_timeSlider)
     {
     }
+
+    public override IEnumerator Slide()
+    {
+        yield return null;
+    }
 }

@@ -82,9 +82,11 @@ public class CarController : MonoBehaviour
         {
             case "Coin":
                 score.coinCount++;
+                Destroy(other.gameObject);
                 break;
             case "TimeBoost":
                 timer.TimeBoost();
+                Destroy(other.gameObject);
                 break;
             case "SpeedBoost":
                 if (!isBoosted)
