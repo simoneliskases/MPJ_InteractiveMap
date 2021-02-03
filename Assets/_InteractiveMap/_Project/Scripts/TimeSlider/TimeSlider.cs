@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class TimeSlider : StateMachine
 {
@@ -46,5 +47,10 @@ public class TimeSlider : StateMachine
     public void Previous()
     {
         StartCoroutine(State.Previous());
+    }
+
+    public void Back()
+    {
+        SceneManager.LoadScene(0);
     }
 }

@@ -11,7 +11,6 @@ public class BaseScene : MonoBehaviour
 
     [Header("Main Scene")]
     public GameObject main;
-    public GameObject restrictedSettings;
 
     [Header("Minigame")]
     public GameObject minigameBase;

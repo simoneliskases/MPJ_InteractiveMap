@@ -10,8 +10,8 @@ public class StateTwo : State
 
     public override IEnumerator Start()
     {
-        TimeSlider.previousButton.SetActive(true);
-        TimeSlider.nextButton.SetActive(true);
+        //TimeSlider.previousButton.SetActive(true);
+        //TimeSlider.nextButton.SetActive(true);
 
         yield break;
     }
