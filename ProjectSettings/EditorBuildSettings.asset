@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/_InteractiveMap/_Project/_Scenes/BaseScene.unity
     guid: 065a437b5f7912e46a182e0426972a04
   - enabled: 1
-    path: Assets/_InteractiveMap/_Project/_Scenes/MainScene.unity
+    path: Assets/_InteractiveMap/_Project/_Scenes/MinigameScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
     path: Assets/_InteractiveMap/_Project/_Scenes/SliderScene.unity
