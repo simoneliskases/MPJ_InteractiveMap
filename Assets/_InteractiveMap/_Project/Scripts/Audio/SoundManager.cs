@@ -35,13 +35,14 @@ public class SoundManager : MonoBehaviour
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
 
-        if(s != null)
+        if (s == null)
         {
-            s.source.Play();
+            Debug.LogWarning("Sound: " + name + "not found!");
+            return;
         }
         else
         {
-            Debug.LogWarning("Sound: " + name + "not found!");
+            s.source.Play();
         }
     }
 }

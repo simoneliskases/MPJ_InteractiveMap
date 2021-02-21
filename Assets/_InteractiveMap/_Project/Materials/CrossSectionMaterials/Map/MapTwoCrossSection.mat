@@ -100,7 +100,7 @@ Material:
     - _emission: {r: 0, g: 0, b: 0, a: 0}
     - _offset: {r: 0, g: 0, b: 0, a: 0}
     - _planeNormal: {r: 1.0000001, g: -0.00000011920929, b: 0, a: 0}
-    - _planePosition: {r: 33.27029, g: 8.100002, b: -7.2400007, a: 0}
+    - _planePosition: {r: 33.27029, g: 19.190002, b: -7.2400007, a: 0}
     - _tiling: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &5081801753213982860

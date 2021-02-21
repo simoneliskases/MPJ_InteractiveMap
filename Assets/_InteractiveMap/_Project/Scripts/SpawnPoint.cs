@@ -19,7 +19,7 @@ public class SpawnPoint : MonoBehaviour
     public float carMaxDistance;
     public int maxCoinNumber;
 
-    private float _coinStartTime;
+    private float _coinSpawnTime;
     private float _spawnHeight = 15f;
     private GameObject _car;
     private GameObject _empty;
@@ -80,7 +80,7 @@ public class SpawnPoint : MonoBehaviour
     private void Start()
     {
         _car = GameManager.currentCar;
-        _coinStartTime = Random.Range(coinSpawnMinTime, coinSpawnMaxTime);
+        _coinSpawnTime = Random.Range(coinSpawnMinTime, coinSpawnMaxTime);
 
         SpawnCoin();
     }
@@ -96,18 +96,18 @@ public class SpawnPoint : MonoBehaviour
             else
             {
                 _coinList.Remove(_coin);
-                _coinStartTime = Random.Range(coinSpawnMinTime, coinSpawnMaxTime);
+                _coinSpawnTime = Random.Range(coinSpawnMinTime, coinSpawnMaxTime);
             }
         }
 
-        if (_coinStartTime > 0)
+        if (_coinSpawnTime > 0)
         {
-            _coinStartTime -= Time.deltaTime;
+            _coinSpawnTime -= Time.deltaTime;
         }
         else if (_coinList.Count < maxCoinNumber)
         {
             SpawnCoin();
-            _coinStartTime = Random.Range(coinSpawnMinTime, coinSpawnMaxTime);
+            _coinSpawnTime = Random.Range(coinSpawnMinTime, coinSpawnMaxTime);
         }
     }
 
