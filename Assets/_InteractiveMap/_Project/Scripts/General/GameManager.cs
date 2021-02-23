@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
 
     private GameObject _instantiatedCar;
 
-    private void OnEnable()
+    private void Awake()
     {
         StartGame();
     }

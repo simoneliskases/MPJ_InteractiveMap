@@ -13,6 +13,7 @@ public class BezierFollow : MonoBehaviour
     private int _routeToGo;
     private float _tParam;
     private Vector3 _objectPosition;
+    private Vector3 _objectRotation;
 
     private void Start()
     {
@@ -34,23 +35,32 @@ public class BezierFollow : MonoBehaviour
         YieldInstruction _instruction = new WaitForEndOfFrame();
         _coroutineAllowed = false;
 
-        List<Vector3> _points = new List<Vector3>();
+        List<Vector3> _pointPositions = new List<Vector3>();
+        List<Vector3> _pointRotations = new List<Vector3>();
 
         for (int i = 0; i < routes.Length; i++)
         {
-            _points.Add(routes[_routeNumber].parent.GetChild(i).position);
+            _pointPositions.Add(routes[_routeNumber].parent.GetChild(i).position);
+            _pointRotations.Add(routes[_routeNumber].parent.GetChild(i).eulerAngles);
         }
-
+        
         while (_tParam < 1)
         {
             _tParam += Time.deltaTime * speedModifier;
 
-            _objectPosition = Mathf.Pow(1 - _tParam, 3) * _points[0] +
-                3 * Mathf.Pow(1 - _tParam, 2) * _tParam * _points[1] +
-                3 * (1 - _tParam) * Mathf.Pow(_tParam, 2) * _points[2] +
-                Mathf.Pow(_tParam, 3) * _points[3];
+            _objectPosition = Mathf.Pow(1 - _tParam, 3) * _pointPositions[0] +
+                3 * Mathf.Pow(1 - _tParam, 2) * _tParam * _pointPositions[1] +
+                3 * (1 - _tParam) * Mathf.Pow(_tParam, 2) * _pointPositions[2] +
+                Mathf.Pow(_tParam, 3) * _pointPositions[3];
+
+            _objectRotation = Mathf.Pow(1 - _tParam, 3) * _pointRotations[0] +
+                3 * Mathf.Pow(1 - _tParam, 2) * _tParam * _pointRotations[1] +
+                3 * (1 - _tParam) * Mathf.Pow(_tParam, 2) * _pointRotations[2] +
+                Mathf.Pow(_tParam, 3) * Mathf.Pow(_tParam, 2) * _pointRotations[2];
 
             transform.position = _objectPosition;
+            transform.rotation = Quaternion.Euler(_objectRotation);
+
             yield return _instruction;
         }
 

@@ -100,8 +100,8 @@ Material:
     - _albedoColor: {r: 0.14150941, g: 0.14150941, b: 0.14150941, a: 0}
     - _emission: {r: 0, g: 0, b: 0, a: 1}
     - _offset: {r: 0, g: 0, b: 0, a: 0}
-    - _planeNormal: {r: 1.0000001, g: -0.00000011920929, b: 0, a: 0}
-    - _planePosition: {r: 45.406788, g: 8.1, b: -7.2400002, a: 0}
+    - _planeNormal: {r: 0, g: 1, b: 0, a: 0}
+    - _planePosition: {r: -15.9, g: 8, b: 16.3, a: 0}
     - _tiling: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &5081801753213982860

@@ -18,6 +18,7 @@ public class SpawnPoint : MonoBehaviour
     public float coinMaxDistance;
     public float carMaxDistance;
     public int maxCoinNumber;
+    public bool debug = false;
 
     private float _coinSpawnTime;
     private float _spawnHeight = 15f;
@@ -75,6 +76,12 @@ public class SpawnPoint : MonoBehaviour
         }
 
         _empty = new GameObject("Coins");
+
+        if (debug)
+        {
+            Debug.Log("There are " + _allSpawnPoints.Count + "possible Spawn Points.");
+            Debug.Log(_unspawnableArea.Count + " Points were blocked due to a Collider.");
+        }
     }
 
     private void Start()

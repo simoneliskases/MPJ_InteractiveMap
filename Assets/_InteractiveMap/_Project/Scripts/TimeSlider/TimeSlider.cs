@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class TimeSlider : StateMachine
+public  class TimeSlider : StateMachine
 {
     public GameObject mapOne;
     public GameObject mapTwo;
@@ -14,16 +14,14 @@ public class TimeSlider : StateMachine
     public GameObject nextButton;
     public Slider slider;
     public float sliderStartValue;
-    public float sliderThreshold;
-    public float slideDuration;
-    public AnimationCurve curve;
+    public float sliderEndValue;
 
-    private void OnEnable()
+    private void Awake()
     {
-        slider.minValue = sliderStartValue;
-        slider.maxValue = sliderStartValue + (sliderThreshold - sliderStartValue) * 2;
-
         SetState(new StateOne(this));
+
+        slider.minValue = sliderStartValue;
+        slider.maxValue = sliderEndValue;
     }
 
     private void Start()
@@ -37,16 +35,6 @@ public class TimeSlider : StateMachine
         {
             StartCoroutine(State.Slide());
         }
-    }
-
-    public void Next()
-    {
-        StartCoroutine(State.Next());
-    }
-
-    public void Previous()
-    {
-        StartCoroutine(State.Previous());
     }
 
     public void Back()
