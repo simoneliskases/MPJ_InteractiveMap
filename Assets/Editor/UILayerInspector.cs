@@ -7,7 +7,7 @@ using UnityEditor;
 [CustomEditor(typeof(BaseScene))]
 public class UILayerInspector : Editor
 {
-    private void OnSceneGUI()
+    public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
 

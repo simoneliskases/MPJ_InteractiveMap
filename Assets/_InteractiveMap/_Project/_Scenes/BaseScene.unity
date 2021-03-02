@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &15169674
 Transform:
   m_ObjectHideFlags: 0
@@ -5711,7 +5711,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1530423665
 Transform:
   m_ObjectHideFlags: 0
@@ -7670,7 +7670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   layerBase: {fileID: 821822761}
-  tempLayer: {fileID: 1530423664}
+  tempLayer: {fileID: 15169673}
   main: {fileID: 1007624634}
   minigameBase: {fileID: 1530423664}
   minigameSettings: {fileID: 1543087991}
@@ -7678,7 +7678,7 @@ MonoBehaviour:
   sliderBase: {fileID: 170996889}
   loadingScreen: {fileID: 348829651}
   loadingSlider: {fileID: 1441927172}
-  displayState: 1
+  displayState: 3
 --- !u!4 &1887309266
 Transform:
   m_ObjectHideFlags: 0
