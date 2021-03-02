@@ -24,8 +24,15 @@ public class BaseScene : MonoBehaviour
     public GameObject loadingScreen;
     public Slider loadingSlider;
 
-    private void OnEnable()
+    [Header("Custom Inspector")]
+    public DisplayState displayState;
+
+    public enum DisplayState
     {
-        tempLayer = main;
+        Main,
+        MinigameBase,
+        MinigameSettings,
+        MinigameSelection,
+        SliderBase,
     }
 }
