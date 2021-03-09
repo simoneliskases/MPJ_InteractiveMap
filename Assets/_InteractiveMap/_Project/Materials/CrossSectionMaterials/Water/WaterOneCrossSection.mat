@@ -32,5 +32,5 @@ Material:
     - Color_3B5F71A3: {r: 0.21106264, g: 0.8773585, b: 0.8773585, a: 1}
     - Color_74CA8297: {r: 0.22432362, g: 0.5438148, b: 0.6698113, a: 1}
     - _planeNormal: {r: 0, g: 1, b: 0, a: 0}
-    - _planePosition: {r: -25.507208, g: 2.4, b: 5.4095616, a: 0}
+    - _planePosition: {r: -15.9, g: 8, b: 16.3, a: 0}
   m_BuildTextureStacks: []

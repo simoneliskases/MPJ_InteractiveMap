@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &15169674
 Transform:
   m_ObjectHideFlags: 0
@@ -3979,7 +3979,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1007624635
 Transform:
   m_ObjectHideFlags: 0
@@ -5869,6 +5869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 264414f73ce90db408918e86d162fd66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  settingsData: {fileID: 11400000, guid: 7619062d7485c5c42ba1c0243b0d499f, type: 2}
   settings: {fileID: 1844719490}
   password: {fileID: 833835236}
   popUp: {fileID: 1769710528}
@@ -7670,7 +7671,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   layerBase: {fileID: 821822761}
-  tempLayer: {fileID: 15169673}
+  tempLayer: {fileID: 1007624634}
   main: {fileID: 1007624634}
   minigameBase: {fileID: 1530423664}
   minigameSettings: {fileID: 1543087991}
@@ -7678,7 +7679,7 @@ MonoBehaviour:
   sliderBase: {fileID: 170996889}
   loadingScreen: {fileID: 348829651}
   loadingSlider: {fileID: 1441927172}
-  displayState: 3
+  displayState: 0
 --- !u!4 &1887309266
 Transform:
   m_ObjectHideFlags: 0

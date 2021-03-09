@@ -5,9 +5,12 @@ using TMPro;
 
 public class Score : MonoBehaviour
 {
+    [HideInInspector]
+    public int[] highScores = new int[5];
+    [HideInInspector]
+    public string[] highScoreNames = new string[5];
+
     public TextMeshProUGUI textField;
-    public string highScorePos = "highScorePos";
-    public string highScoreName = "highScoreName";
     [HideInInspector]
     public int coinCount; //Is updated by CarController script
 
@@ -16,6 +19,16 @@ public class Score : MonoBehaviour
 
     private string playerName;
     private string tempName;
+
+    private void Awake()
+    {
+        ScoreData data = SaveSystem.LoadScores();
+        if (data != null)
+        {
+            highScores = data.playerScores;
+            highScoreNames = data.playerNames;
+        }
+    }
 
     private void Update()
     {
@@ -29,25 +42,27 @@ public class Score : MonoBehaviour
 
         for (int i=1; i<=5; i++)
         {
-            if(PlayerPrefs.GetInt(highScorePos + i) < playerScore)
+            if(highScores[i - 1] < playerScore)
             {
-                tempScore = PlayerPrefs.GetInt(highScorePos + i);
-                PlayerPrefs.SetInt(highScorePos + i, playerScore);
+                tempScore = highScores[i - 1];
+                highScores[i - 1] = playerScore;
 
-                tempName = PlayerPrefs.GetString(highScoreName + i);
-                PlayerPrefs.SetString(highScoreName + i, playerName);
+                tempName = highScoreNames[i - 1];
+                highScoreNames[i - 1] = playerName;
 
                 if (i < 5)
                 {
                     int j = i + 1;
 
-                    playerScore = PlayerPrefs.GetInt(highScorePos + j);
-                    PlayerPrefs.SetInt(highScorePos + j, tempScore);
+                    playerScore = highScores[j - 1];
+                    highScores[j - 1] = tempScore;
 
-                    playerName = PlayerPrefs.GetString(highScoreName + j);
-                    PlayerPrefs.SetString(highScoreName + j, tempName);
+                    playerName = highScoreNames[j - 1];
+                    highScoreNames[j - 1] = tempName;
                 }
             }
         }
+
+        SaveSystem.SaveScores(this);
     }
 }

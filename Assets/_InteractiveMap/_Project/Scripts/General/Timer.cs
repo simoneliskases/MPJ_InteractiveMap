@@ -15,7 +15,7 @@ public class Timer : MonoBehaviour
 
     private void OnEnable()
     {
-        timeRemaining = PlayerPrefs.GetFloat("minigameTime");
+        timeRemaining = RestrictedSettings.minigameTime;
     }
 
     private void Update()

@@ -6,21 +6,38 @@ using TMPro;
 public class Leaderboard : MonoBehaviour
 {
     public TextMeshProUGUI[] textFields;
+    [HideInInspector]
+    public int[] highScores = new int[5];
+    [HideInInspector]
+    public string[] highScoreNames = new string[5];
 
     private void OnEnable()
     {
-        for(int i=1; i<=5; i++)
+        ScoreData data = SaveSystem.LoadScores();
+        if (data == null)
         {
-            string _highScoreName = PlayerPrefs.GetString("highScoreName" + i);
-            int _highScorePos = PlayerPrefs.GetInt("highScorePos" + i);
+            for(int i = 0; i<5; i++)
+            {
+                textFields[i].text = "Not available";
+            }
+            return;
+        }
+
+        highScores = data.playerScores;
+        highScoreNames = data.playerNames;
+
+        for (int i=0; i<5; i++)
+        {
+            string _highScoreName = highScoreNames[i];
+            int _highScorePos = highScores[i];
 
             if(_highScoreName != null && _highScorePos != 0)
             {
-                textFields[i - 1].text = _highScoreName + ": " + _highScorePos;
+                textFields[i].text = _highScoreName + ": " + _highScorePos;
             }
             else
             {
-                textFields[i - 1].text = "Not available";
+                textFields[i].text = "Not available";
             }           
         }
     }

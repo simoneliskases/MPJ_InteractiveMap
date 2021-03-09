@@ -5,18 +5,27 @@ using TMPro;
 
 public class RestrictedSettings : MonoBehaviour
 {
+    public static float minigameTime = 60;
+    public static string pw = "123";
+
     public GameObject settings, password, popUp, back;
     public TMP_InputField passwordInput;
     public TMP_Dropdown dropdown;
     public TextMeshProUGUI popUpMessage;
 
-    private string _password = "123";
     private int settingsID;
     private float _tempMinigameTime;
 
     private void Awake()
     {
-        _tempMinigameTime = PlayerPrefs.GetFloat("minigameTime");
+        SettingsData data = SaveSystem.LoadSettings();
+        if (data != null)
+        {
+            minigameTime = data.minigameDuration;
+            pw = data.password;
+        }
+
+        _tempMinigameTime = minigameTime;
         switch (_tempMinigameTime)
         {
             case 60:
@@ -41,13 +50,13 @@ public class RestrictedSettings : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Return))
         {
-            if (passwordInput.text == _password)
+            if (passwordInput.text == pw)
             {
                 SetActive(true, false, false, true);
             }
             else
             {
-                Debug.LogWarning("The password is " + _password + ", but you wrote " + passwordInput.text);
+                Debug.LogWarning("The password is " + password + ", but you wrote " + passwordInput.text);
             }
         }
     }
@@ -61,7 +70,8 @@ public class RestrictedSettings : MonoBehaviour
 
     private void DeleteData()
     {
-        PlayerPrefs.DeleteAll();
+        SaveSystem.DeleteScores();
+        SaveSystem.DeleteSettings();
     }
 
     public void MinigameTimeInput() //ID = 2
@@ -104,6 +114,7 @@ public class RestrictedSettings : MonoBehaviour
     public void Submit()
     {
         SetActive(true, false, false, true);
+        SaveSystem.SaveSettings(this);
 
         switch (settingsID)
         {
