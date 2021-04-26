@@ -24,6 +24,12 @@ public class RestrictedSettings : MonoBehaviour
             minigameTime = data.minigameDuration;
             pw = data.password;
         }
+        else
+        {
+            minigameTime = 60;
+            pw = "123";
+            SaveSystem.SaveSettings(this);
+        }
 
         _tempMinigameTime = minigameTime;
         switch (_tempMinigameTime)
